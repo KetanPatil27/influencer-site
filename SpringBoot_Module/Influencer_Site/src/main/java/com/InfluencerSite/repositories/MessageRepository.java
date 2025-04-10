@@ -6,4 +6,3 @@ import com.InfluencerSite.entity.Message;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
 }
-

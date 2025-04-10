@@ -3,32 +3,27 @@ package com.InfluencerSite.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.InfluencerSite.entity.Message;
-import com.InfluencerSite.services.MessageService;
+import com.InfluencerSite.repositories.MessageRepository;
 
 @RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/api/messages")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class MessageController {
 
     @Autowired
-    private MessageService messageService;
+    private MessageRepository messageRepository;
 
-    @PostMapping("/messages")
-    public ResponseEntity<?> submitMessage(@RequestBody Message message) {
-        System.out.println("Received message: " + message);
-        return ResponseEntity.ok(messageService.save(message));
-    }
-
-    @GetMapping("/admin/messages")
-    public ResponseEntity<?> getAllMessages() {
-        return ResponseEntity.ok(messageService.getAllMessages());
+    @PostMapping("/send")
+    public ResponseEntity<String> sendMessage(@RequestBody Message message) {
+        messageRepository.save(message);
+        return ResponseEntity.ok("Message received!");
     }
 }
+
 

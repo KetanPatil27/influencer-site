@@ -1,0 +1,18 @@
+.footer {
+    font-size: 1.1rem;
+    background: linear-gradient(to right, #111, #222);
+    border-top: 3px solid #f9d423;
+  }
+  
+  .footer-text {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #f1f1f1;
+  }
+  
+  .srk-brand {
+    color: #f9d423;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  

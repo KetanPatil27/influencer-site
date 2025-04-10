@@ -1,0 +1,32 @@
+/* Navbar.css */
+
+.custom-navbar {
+    background: linear-gradient(to right, #000000, #1c1c1c);
+  }
+  
+  .navbar-brand {
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+  }
+  
+  .srk-highlight {
+    color: #f9d423;
+    font-weight: bold;
+  }
+  
+  .btn-srk-outline {
+    border: 2px solid #f9d423;
+    color: #f9d423;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border-radius: 30px;
+    padding: 6px 18px;
+    background-color: transparent;
+  }
+  
+  .btn-srk-outline:hover {
+    background: #f9d423;
+    color: #000;
+    box-shadow: 0 0 10px rgba(249, 212, 35, 0.6);
+  }
+  

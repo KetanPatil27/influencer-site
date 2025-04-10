@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ContactForm from './ContactForm';
 import influencerImage from '../assets/influencer.jpg';
 import '../css/Home.css';
-
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Home() {
+  useEffect(() => {
+    const carouselElement = document.querySelector('#quoteCarousel');
+    if (carouselElement && window.bootstrap) {
+      new window.bootstrap.Carousel(carouselElement, {
+        interval: 4000,
+        ride: 'carousel',
+      });
+    }
+  }, []);
+
   return (
     <div className="container mt-4">
 
@@ -12,8 +22,8 @@ function Home() {
       <div className="text-center mb-5">
         <h1 className="display-4 fw-bold">Shah Rukh Khan – The King of Bollywood</h1>
         <p className="lead fs-4 fw-bold">
-  Hi, I’m Shah Rukh Khan – Actor, Dreamer, and Global Icon. Follow me on Instagram, Twitter, and YouTube!
-</p>
+          Hi, I’m Shah Rukh Khan – Actor, Dreamer, and Global Icon. Follow me on Instagram, Twitter, and YouTube!
+        </p>
         <img
           src={influencerImage}
           alt="Influencer"
@@ -56,39 +66,47 @@ function Home() {
 
       {/* Fan Quotes Carousel */}
       <section className="mb-5">
-        <h2 className="text-center mb-4">What the World Says About SRK</h2>
+        <h2 className="text-center mb-4 fw-bold">💬 What the World Says About SRK</h2>
         <div id="quoteCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner text-center">
             <div className="carousel-item active">
               <blockquote className="blockquote">
-                <p className="mb-3">"There’s only one Shah Rukh Khan. He’s not just a superstar — he’s an emotion."</p>
+                <p className="mb-3 fst-italic">
+                  "There’s only one Shah Rukh Khan. He’s not just a superstar — he’s an emotion."
+                </p>
                 <footer className="blockquote-footer">Fan from Germany 🇩🇪</footer>
               </blockquote>
             </div>
             <div className="carousel-item">
               <blockquote className="blockquote">
-                <p className="mb-3">"SRK taught me that you don’t need a godfather to rise — just talent and belief."</p>
+                <p className="mb-3 fst-italic">
+                  "SRK taught me that you don’t need a godfather to rise — just talent and belief."
+                </p>
                 <footer className="blockquote-footer">Fan from Mumbai 🇮🇳</footer>
               </blockquote>
             </div>
             <div className="carousel-item">
               <blockquote className="blockquote">
-                <p className="mb-3">"From My Name is Khan to Jawan, he keeps redefining success."</p>
+                <p className="mb-3 fst-italic">
+                  "From *My Name is Khan* to *Jawan*, he keeps redefining success."
+                </p>
                 <footer className="blockquote-footer">Fan from USA 🇺🇸</footer>
               </blockquote>
             </div>
           </div>
 
           <button className="carousel-control-prev" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button className="carousel-control-next" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon"></span>
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </section>
 
-      {/* Contact Form (already existing) */}
+      {/* Contact Form */}
       <ContactForm />
     </div>
   );
